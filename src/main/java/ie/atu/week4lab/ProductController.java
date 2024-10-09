@@ -9,20 +9,27 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/person")
 public class ProductController {
-    List<Product> productList = new ArrayList<>();
+    List<Product> personList = new ArrayList<>();
 
-    @GetMapping("/getProducts")
-    public List<Product> getProducts()
+    @GetMapping("/getPersons")
+    public List<Product> getPersons()
     {
-        return productList;
+        return personList;
     }
 
     @PostMapping("/addProduct")
     public List<Product> Product(@Valid @RequestBody Product product)
     {
-        productList.add(product);
-        return productList;
+        personList.add(product);
+        return personList;
+    }
+
+    @PostMapping("/createPerson")
+    public List<Product> Person(@Valid @RequestBody Product person)
+    {
+        personList.add(person);
+        return personList;
     }
 }
