@@ -1,6 +1,7 @@
 package ie.atu.week4lab;
 
 
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -13,13 +14,13 @@ public class ProductController {
     List<Product> productList = new ArrayList<>();
 
     @GetMapping("/getProducts")
-    public String getProducts()
+    public List<Product> getProducts()
     {
         return productList;
     }
 
     @PostMapping("/addProduct")
-    public String Product(@RequestBody Product product)
+    public List<Product> Product(@Valid @RequestBody Product product)
     {
         productList.add(product);
         return productList;
